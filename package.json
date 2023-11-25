@@ -1,10 +1,11 @@
 {
-  "name": "my-module",
+  "name": "nuxt-default-parallel-plugins",
   "version": "1.0.0",
-  "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
+  "description": "A Nuxt module to set all plugins to parallel mode by default",
+  "repository": "huang-julien/nuxt-default-parallel-plugins",
   "license": "MIT",
   "type": "module",
+  "keywords": ["nuxt", "nuxt-modules", "nuxt-plugins"],
   "exports": {
     ".": {
       "types": "./dist/types.d.ts",
