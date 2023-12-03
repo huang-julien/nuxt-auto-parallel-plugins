@@ -8,6 +8,9 @@ dependencies:
   '@nuxt/kit':
     specifier: ^3.8.1
     version: 3.8.1(rollup@3.29.4)
+  playwright-core:
+    specifier: ^1.40.1
+    version: 1.40.1
 
 devDependencies:
   '@nuxt/devtools':
@@ -24,7 +27,7 @@ devDependencies:
     version: 3.8.1(rollup@3.29.4)
   '@nuxt/test-utils':
     specifier: ^3.8.1
-    version: 3.8.1(rollup@3.29.4)(vitest@0.33.0)(vue@3.3.8)
+    version: 3.8.1(playwright-core@1.40.1)(rollup@3.29.4)(vitest@0.33.0)(vue@3.3.8)
   '@types/node':
     specifier: ^20.8.10
     version: 20.9.1
@@ -1240,7 +1243,7 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxt/test-utils@3.8.1(rollup@3.29.4)(vitest@0.33.0)(vue@3.3.8):
+  /@nuxt/test-utils@3.8.1(playwright-core@1.40.1)(rollup@3.29.4)(vitest@0.33.0)(vue@3.3.8):
     resolution: {integrity: sha512-8ZQ+OZ7z5Sc5KG2aCvk0piheYSpGb2UQJMCWr8ORwEyZIw4awrkkwGzUY06e344E4StvJB8zxN122MEcFNOkow==}
     engines: {node: ^14.18.0 || >=16.10.0}
     peerDependencies:
@@ -1264,6 +1267,7 @@ packages:
       get-port-please: 3.1.1
       ofetch: 1.3.3
       pathe: 1.1.1
+      playwright-core: 1.40.1
       ufo: 1.3.2
       vitest: 0.33.0
       vue: 3.3.8(typescript@5.2.2)
@@ -1422,6 +1426,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
+      napi-wasm: 1.1.0
     dev: true
     bundledDependencies:
       - napi-wasm
@@ -4450,6 +4455,10 @@ packages:
     hasBin: true
     dev: true
 
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
+    dev: true
+
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
@@ -5083,6 +5092,11 @@ packages:
       jsonc-parser: 3.2.0
       mlly: 1.4.2
       pathe: 1.1.1
+
+  /playwright-core@1.40.1:
+    resolution: {integrity: sha512-+hkOycxPiV534c4HhpfX6yrlawqVUzITRKwHAmYfmsVreltEl6fAZJ3DPfLMOODw0H3s1Itd6MDCWmP1fl/QvQ==}
+    engines: {node: '>=16'}
+    hasBin: true
 
   /postcss-calc@9.0.1(postcss@8.4.31):
     resolution: {integrity: sha512-TipgjGyzP5QzEhsOZUaIkeO5mKeMFpebWzRogWG/ysonUlnHcq5aJe0jOjpfzUU8PeSaBQnrE8ehR0QA5vs8PQ==}

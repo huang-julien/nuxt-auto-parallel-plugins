@@ -41,7 +41,6 @@ function ${WRAPPER_KEY} (plugin) {
             const items = itemsRaw.split(',').map(i => i.trim())
               .map((i) => {
                 const importItem = imports.find(({ name }) => name === i)
- 
                 // don't wrap nuxt imports
                 if (!importItem || importItem.path.includes('nuxt/dist'))
                   return i
