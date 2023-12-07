@@ -1,8 +1,8 @@
 {
-  "name": "nuxt-default-parallel-plugins",
+  "name": "nuxt-plugins-default-parallel",
   "version": "1.0.0",
   "description": "A Nuxt module to set all plugins to parallel mode by default",
-  "repository": "huang-julien/nuxt-default-parallel-plugins",
+  "repository": "huang-julien/nuxt-plugins-default-parallel",
   "license": "MIT",
   "type": "module",
   "keywords": [

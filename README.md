@@ -1,6 +1,6 @@
-# nuxt-default-parallel-plugins
+# nuxt-plugins-default-parallel
 
-Set all your nuxt plugins as `parallel`, even those added by modules.
+Set all your nuxt plugins as `parallel` by default, even those added by modules.
 
 Since Nuxt 3.9, a new `dependsOn` property has been added, allowing all plugins to be loaded in parallel instead of sequentially while making a plugin awaiting for another plugin to be loaded.
 
