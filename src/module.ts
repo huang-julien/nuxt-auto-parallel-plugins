@@ -5,7 +5,7 @@ export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'nuxt-default-parallel-plugin',
+    name: 'nuxt-auto-parallel-plugins',
   },
   // Default configuration options of the Nuxt module
   defaults: {},
