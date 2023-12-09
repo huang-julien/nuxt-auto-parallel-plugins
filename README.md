@@ -6,6 +6,37 @@ Since Nuxt 3.9, a new `dependsOn` property has been added, allowing all plugins 
 
 This module simply set the `parallel` property of all your nuxt plugin to `true` by default instead of `false`.
 
+## Usage
+
+### Installation
+
+Install the package
+- `npm install -D nuxt-auto-parallel-plugins`
+- `pnpm install -D nuxt-auto-parallel-plugins`
+- `yarn add -D nuxt-auto-parallel-plugins`
+
+### Add the module within the nuxt config
+
+`nuxt.config.ts`
+
+```ts
+export default defineNuxtconfig({
+    modules: ['nuxt-auto-parallel-plugins']
+})
+```
+
+Et voilà ! All your plugins will be parallel by default. If you don't want some specific plugins to be parallel, you can set the `parallel` boolean to `false`
+
+```ts
+export default defineNuxtPlugin({
+    name: 'sequential-plugin',
+    setup() {
+        // ...
+    },
+    parallel: false
+})
+```
+
 ## Credits
 
 - @manniL for the package name
