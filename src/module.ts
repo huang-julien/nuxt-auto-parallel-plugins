@@ -46,7 +46,7 @@ function ${WRAPPER_KEY} (plugin) {
                   return i
                 return `${WRAPPER_KEY}(${i})`
               })
-            return `\n${snippets}\nexport default [\n${items.join(',\n')}\n]\n`
+            return `\n${content.includes(WRAPPER_KEY) ? '' : snippets}\nexport default [\n${items.join(',\n')}\n]\n`
           })
  
           return content
