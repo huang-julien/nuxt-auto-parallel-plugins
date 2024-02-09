@@ -25,28 +25,26 @@ function ${WRAPPER_KEY} (plugin) {
   if (!plugin)
     return plugin;
 
-  const parallel = plugin.parallel ?? true
-
-  return defineNuxtPlugin({
-    ...plugin,
-    parallel,
-  })
+    if(typeof plugin === 'function' && typeof plugin.parallel === 'undefined') {
+      plugin.parallel = true
+    }
 }
 `
 
           const imports = Array.from(content.matchAll(/(?:\n|^)import (.*) from ['"](.*)['"]/g))
             .map(([, name, path]) => ({ name, path }))
 
-          content = content.replace(/\nexport default\s*\[([\s\S]*)\]/, (_, itemsRaw: string) => {
-            const items = itemsRaw.split(',').map(i => i.trim())
-              .map((i) => {
-                const importItem = imports.find(({ name }) => name === i)
+          content = content.replace(/\nexport default\s*\[([\s\S]*)\]/, (full, itemsRaw: string) => {
+            const items = itemsRaw.split(',').map(i => i.trim()).filter(i => {
+              const importItem = imports.find(({ name }) => name === i)
                 // don't wrap nuxt imports
-                if (!importItem || importItem.path.includes('nuxt/dist'))
-                  return i
+              return !(!importItem || importItem.path.includes('nuxt/dist')) 
+            })
+              .map((i) => {
+                console.log(i)
                 return `${WRAPPER_KEY}(${i})`
               })
-            return `\n${content.includes(WRAPPER_KEY) ? '' : snippets}\nexport default [\n${items.join(',\n')}\n]\n`
+            return `\n${content.includes(WRAPPER_KEY) ? '' : snippets}\n${items.join('\n')}\n${full}\n`
           })
  
           return content
