@@ -41,7 +41,6 @@ function ${WRAPPER_KEY} (plugin) {
               return !(!importItem || importItem.path.includes('nuxt/dist')) 
             })
               .map((i) => {
-                console.log(i)
                 return `${WRAPPER_KEY}(${i})`
               })
             return `\n${content.includes(WRAPPER_KEY) ? '' : snippets}\n${items.join('\n')}\n${full}\n`
