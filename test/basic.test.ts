@@ -13,7 +13,7 @@ describe('setup all plugins as parallel by default', async () => {
         // @ts-ignore
         return useNuxtApp().$plugins.map(i => i.parallel)
       })
-      expect(pluginsParallels.slice(-3)).toMatchObject([false, true, true])
+      expect(pluginsParallels.slice(-4)).toMatchObject([undefined, false, true, true])
 
   })
 })
