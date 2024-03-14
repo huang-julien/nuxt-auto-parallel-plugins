@@ -37,6 +37,18 @@ export default defineNuxtPlugin({
 })
 ```
 
+###  Module options
+
+You can set options with `parallelPlugins` within your config.
+
+```ts
+export interface ModuleOptions {
+  ignore: (id: string) => boolean
+}
+```
+
+This can be useful in case you don't want some plugins injected by modules to be parallel by default.
+
 ## Credits
 
 - @manniL for the package name

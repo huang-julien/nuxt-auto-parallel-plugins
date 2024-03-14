@@ -1,15 +1,24 @@
 import { defineNuxtModule } from '@nuxt/kit'
 
 // Module options TypeScript interface definition
-export interface ModuleOptions {}
+export interface ModuleOptions {
+  /**
+   * ignore plugins by path import
+   * return true to ignore
+   */
+  ignore: (id: string) => boolean
+}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-auto-parallel-plugins',
+    configKey: 'parallelPlugins'
   },
   // Default configuration options of the Nuxt module
-  defaults: {},
-  setup (_, nuxt) {    
+  defaults: {
+    ignore: () => false
+  },
+  setup (options, nuxt) {    
     nuxt.hook('app:templates', (app) => {
       app.templates.filter(i => i.filename?.startsWith('plugins/'))
       .forEach((i) => {
@@ -38,7 +47,7 @@ function ${WRAPPER_KEY} (plugin) {
             const items = itemsRaw.split(',').map(i => i.trim()).filter(i => {
               const importItem = imports.find(({ name }) => name === i)
                 // don't wrap nuxt imports
-              return !(!importItem || importItem.path.includes('nuxt/dist')) 
+              return !(!importItem || importItem.path.includes('nuxt/dist') || options.ignore(importItem.path))
             })
               .map((i) => {
                 return `${WRAPPER_KEY}(${i})`
